@@ -1,4 +1,83 @@
 // Specific CSS for your home-page
-.homepage {
-  padding-top: 80px;
+.banner {
+  height: 500px;
+  width: 100%;
+  background: rgb(230,230,230);
+}
+
+.container {
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+  h3 {
+    margin-left: 40px;
+    margin-top: 50px;
+  }
+
+  i {
+    margin-top: 52px;
+    margin-left: 20px;
+    font-size: 30px;
+  }
+}
+
+.card-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.card {
+  width: 300px;
+  height: 300px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.big-card {
+  width: 90%;
+  height: 300px;
+  color: white;
+  margin: 20px;
+  margin-left: 30px;
+  margin-top: 90px;
+  margin-bottom: 80px;
+}
+
+.big-card-info {
+  background: rgb(200,200,200);
+  width: 50%;
+  padding: 20px;
+  padding-left: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 20px 0px 0px 20px;
+}
+
+.big-card-picture {
+  background: rgb(210,210,210);
+  width: 50%;
+  border-radius: 0px 20px 20px 0px;
+}
+
+.button {
+  background: white;
+  color: black;
+  padding: 8px;
+  width: 120px;
+  text-align: center;
+  border-radius: 4px;
+
+  &:hover {
+    text-decoration: none;
+    color: black;
+    background-color: rgb(245,245,245);
+  }
+}
+
+.cta {
+  margin-top: 20px;
 }
