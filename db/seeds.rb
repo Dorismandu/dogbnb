@@ -1,37 +1,9 @@
 require 'faker'
 require "open-uri"
 
-
-
-
 puts "cleaning bookings DB"
 Booking.destroy_all
 puts "booking DB cleaned!"
-
-d = 1
-5.times do 
-  my_booking = Booking.new(
-    pickup_time: DateTime.current.beginning_of_day + d,
-    giveback_time: DateTime.current.middle_of_day + d,
-    pickup_location: Faker::Address.full_address,
-    giveback_location: Faker::Address.full_address,
-    activity: "walk", 
-    status: rand(0..2)
-  )
-
-  my_booking.user = User.first
-  my_booking.dog = Dog.first
-
-  my_booking.save
-  puts "Booking added"
-  d+=1
-end
-puts "Bookings DB seeded!"
-
-
-
-
-
 
 puts "cleaning Dogs DB"
 Dog.destroy_all
@@ -64,3 +36,24 @@ i = 0
   puts "Dog added"
 end
 puts "Dogs DB seeded!"
+
+
+d = 1
+5.times do 
+  my_booking = Booking.new(
+    pickup_time: DateTime.current.beginning_of_day + d,
+    giveback_time: DateTime.current.middle_of_day + d,
+    pickup_location: Faker::Address.full_address,
+    giveback_location: Faker::Address.full_address,
+    activity: "walk", 
+    status: rand(0..2)
+  )
+
+  my_booking.user = User.first
+  my_booking.dog = Dog.first
+
+  my_booking.save
+  puts "Booking added"
+  d+=1
+end
+puts "Bookings DB seeded!"
