@@ -1,4 +1,34 @@
-<div class="container">
-<h1>My Bookings</h1>
-<p><%= link_to @bookings[0].dog.name, booking_path(@bookings[0]) %></p>
+<div class="container-booking">
+
+  <div class="heading">
+    <h3>Your Booking Requests </h3>
+  </div>
+
+  <div>
+    <div>
+      <% @bookings.each do |booking| %>
+        <div class="card-booking">
+          <div>
+            <span> <%= cl_image_tag booking.dog.photos[0].key, class: "avatar", alt: "avatar" %> </span>
+            <span> <%= booking.dog.name %> </span>
+          </div>
+          <div>
+            <span> Status:
+              <% if booking.status == 0 %>
+                <%= "Pending" %>
+              <% elsif booking.status == 1 %>
+                <%= "Approved" %>
+              <% else %>
+                <%= "Denied" %>
+              <% end %> </span>
+          </div>
+          <div>
+            <span> <%= link_to "More >", booking_path(@bookings.first) %> </span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+
 </div>
