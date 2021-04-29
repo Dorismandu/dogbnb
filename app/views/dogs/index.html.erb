@@ -1,29 +1,25 @@
 
+ <i class="fas fa-long-arrow-alt-right"></i>
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
-    <div class="container">
-  <div class="header d-flex">
-    <h3>All Dogs</h3>
-    <i class="fas fa-long-arrow-alt-right"></i>
-  </div>
-  <div class="card-box">
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-  </div>
-</div>
-  </div>
-
-   <div class="row">
-    <% @dogs.each do |dog| %>
-      <div class="co-12 colsm-6 col-md-4">
-        <%= link_to dog_path(dog), class:'text-decoration-none' do %>
-          <div class="card-category" data-aos="zoom-in"%>)">
-            <%= dog.name %>
+    <div class="card-box">
+         <div class="card"></div>
+         <div class="card"></div>
+          <div class="card"></div>
+          <h2>All Dogs</h2>
+          <% @dogs.each do |dog| %>
+            <div class="card-product">
+                  <% dog.photos.each do |photo| %>
+              <div class="card-product-infos">
+                  <%= cl_image_tag dog.photos.key, height: 150, width: 300, crop: :fill %>
+                  <div class="profile-info" style="height: 170px;">>
+                <% end %>
+                  </div>
+                <% end %>
+              </div>
           </div>
-        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
+
