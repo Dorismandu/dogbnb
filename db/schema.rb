@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_26_191424) do
+ActiveRecord::Schema.define(version: 2021_04_29_072614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,21 @@ ActiveRecord::Schema.define(version: 2021_04_26_191424) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "bookings", force: :cascade do |t|
+    t.string "pickup_location"
+    t.string "giveback_location"
+    t.string "activity"
+    t.integer "status"
+    t.datetime "pickup_time"
+    t.datetime "giveback_time"
+    t.bigint "user_id", null: false
+    t.bigint "dog_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dog_id"], name: "index_bookings_on_dog_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
   create_table "dogs", force: :cascade do |t|
     t.string "name"
     t.string "breed"
@@ -44,6 +59,7 @@ ActiveRecord::Schema.define(version: 2021_04_26_191424) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "address"
     t.index ["user_id"], name: "index_dogs_on_user_id"
   end
 
@@ -61,5 +77,7 @@ ActiveRecord::Schema.define(version: 2021_04_26_191424) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "dogs"
+  add_foreign_key "bookings", "users"
   add_foreign_key "dogs", "users"
 end
