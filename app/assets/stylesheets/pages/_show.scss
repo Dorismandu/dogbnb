@@ -6,6 +6,11 @@
   text-decoration: underline;
 }
 
+.user-description {
+  color: black;
+  font-size: 30px;
+}
+
 .dog-header {
   margin-top: 30px;
 }
@@ -63,7 +68,6 @@
   justify-content: center;
   padding: 30px;
   margin: 40px 0px;
-  width: 800px;
   height: 160px;
   border: solid;
   border-width: 1px 1px 1px 5px;
@@ -78,9 +82,25 @@
   padding-top: 50px;
 }
 
+.request-booking {
+  background: white;
+  border-radius: 15px;
+  border: solid;
+  border-width: 1px;
+  border-color: rgb(200,200,200);
+  box-shadow: 0px 0px 5px rgba(100,100,100,0.5);
+  position: sticky;
+  top: 60px;
+}
 
+.submit-booking {
+  margin-top: 10px;
+  width: 100%;
+}
 
-
+.request-form-header {
+  text-align: center;
+}
 
 
 

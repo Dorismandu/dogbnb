@@ -22,29 +22,45 @@
       <%= cl_image_tag @dog.photos[2].key, height: 200, width: 420, crop: :fill, class: "lower-small-dog-image" %>
     </div>
   </div>
-  <div class="dog-show-info">
-    <% description = ["A beautiful dog hosted by USER", "USER offers unforgettable time with his dog", "Dont work, go for a walk"] %>
-    <div class="dog-show-info-header d-flex justify-content-between" style="width: 800px;">
-      <h2> <%= description.sample %></h2>
-      <div class="avatar-user"></div>
+  <div class="main-content-show d-flex justify-content-between" style="height: 1000px;">
+    <div class="row">
+      <div class="col-8">
+        <div class="dog-info-holder" style="width:760px;">
+          <div class="dog-show-info">
+            <% description = ["A beautiful dog hosted by USER", "USER offers unforgettable time with his dog", "Dont work, go for a walk"] %>
+            <div class="dog-show-info-header d-flex justify-content-between">
+              <h2 class="user-description"> <%= description.sample %></h2>
+              <div class="avatar-user"></div>
+            </div>
+          </div>
+          <div class="covid-restrictions">
+            <h4>Local covid restrictions</h4>
+            <p>Please review government restrictions on meetups in this area due to COVID-19</p>
+            <a href="">Learn more</a>
+          </div>
+          <div class="individual-dog-info">
+            <p><i class="fas fa-user"></i> Owner: <%= @dog.user.name %></p>
+            <p><i class="fas fa-info"></i> Name: <%= @dog.name %></p>
+            <p><i class="fas fa-dog"></i> Breed: <%= @dog.breed %></p>
+            <p><i class="fas fa-baby-carriage"></i> Age: <%= @dog.age %></p>
+            <p><i class="fas fa-file-alt"></i> Description: <br> <%= @dog.description %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+         <div class="request-booking d-flex flex-column align-items-center" style="width: 400px; height: 400px; margin-right: 20px; margin-top: 40px;">
+          <div class="form-box" style="width: 90%; margin-top: 20px;">
+            <h4 class="request-form-header" style="margin-bottom: 20px;">Request time with <%= @dog.name %>!</h4>
+            <%= simple_form_for [@dog, @booking] do |f| %>
+              <%= f.input :pickup_time, as: :date, label: "Choose pickup day" %>
+              <%= f.input :giveback_time, as: :date, label: "Choose planned return day" %>
+              <%= f.input :activity, collection: ['Walk in the park', 'Go on a date', 'Going jogging', 'Other'] %>
+              <%= f.submit "Make request", class: "btn btn-primary submit-booking" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="covid-restrictions">
-    <h4>Local covid restrictions</h4>
-    <p>Please review government restrictions on meetups in this area due to COVID-19</p>
-    <a href="">Learn more</a>
-  </div>
-  <div class="individual-dog-info" style="width: 800px;">
-    <p><i class="fas fa-user"></i> Owner: <%= @dog.user.name %></p>
-    <p><i class="fas fa-info"></i> Name: <%= @dog.name %></p>
-    <p><i class="fas fa-dog"></i> Breed: <%= @dog.breed %></p>
-    <p><i class="fas fa-baby-carriage"></i> Age: <%= @dog.age %></p>
-    <p><i class="fas fa-file-alt"></i> Description: <br> <%= @dog.description %></p>
-
-  </div>
-
-  <div class="dummy" style="height:1000px">
-
   </div>
 </div>
 
