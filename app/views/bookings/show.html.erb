@@ -20,14 +20,14 @@
   <div class="row">
     <div class="col-sm-12 col-lg-6">
       <div class="request-card">
-        <h5><%= image_tag("images/pickup.png", size: "18") %> Pick-up</h5>
+        <h5><%= image_tag("pickup.png", size: "18") %> Pick-up</h5>
         <p><b>Time:</b> <%= @booking.pickup_time.strftime("%-d/%-m/%y: %H:%M %Z") %></p>
         <p><b>Location:</b> <%= @booking.pickup_location %></p>
       </div>
     </div>
     <div class="col-sm-12 col-lg-6">
       <div class="request-card">
-        <h5><%= image_tag("images/giveback.png", size: "18") %> Give Back</h5>
+        <h5><%= image_tag("giveback.png", size: "18") %> Give Back</h5>
         <p><b>Time:</b> <%= @booking.giveback_time.strftime("%-d/%-m/%y: %H:%M %Z") %></p>
         <p><b>Location:</b> <%= @booking.giveback_location %></p>
       </div>
