@@ -15,8 +15,21 @@
 .nav-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  width: 480px;
+  width: 540px;
+
+  .nav-3items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 340px;
+  }
+
+  .nav-signout {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 120px;
+  }
 }
 
 .nav-item2 {
