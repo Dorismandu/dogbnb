@@ -1,0 +1,51 @@
+.container-booking {
+  background-color: #DAFFFA;
+  margin-top: 48px;
+  padding-bottom: 48px;
+}
+
+.heading {
+  padding: 48px 0 24px 96px;
+
+  h3 {
+    font-size: 24px;
+  }
+}
+
+.card-booking {
+  background-color: white;
+  height: 96px;
+  margin: 24px 96px;
+  padding: 0 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  font-size: 16px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+  .dogpic {
+    padding-right: 24px;
+  }
+
+  .status {
+    width: 200px;
+
+    .pending {
+      color: orange;
+    }
+
+    .approved {
+      color: rgb(16, 187, 16);
+    }
+
+    .denied {
+      color: red;
+    }
+  }
+
+  .link {
+    color: black;
+  }
+}
