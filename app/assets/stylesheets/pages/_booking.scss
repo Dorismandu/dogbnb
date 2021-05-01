@@ -18,7 +18,7 @@ h2 {
 }
 
 .approved {
-  color: rgb(16, 187, 16);
+  color: rgb(53, 221, 11);
   font-weight: bold ;
 }
 
@@ -32,11 +32,25 @@ h2 {
   color: rgba(0,0,0,0.8);
 }
 
+.owner-reply {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.icon-b {
+  color: #17BFAB;
+  opacity: 0.6;
+}
+
+.icon-status {
+  font-size: 44px;
+}
 .request-card {
   border-radius: 8px;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.15);
-  padding: 18px 24px;
-  margin-bottom: 12px;
+  padding: 28px;
+  margin-bottom: 24px;
 
   h5 {
     font-weight: bold;
