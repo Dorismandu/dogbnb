@@ -15,7 +15,8 @@
 .nav-item {
   display: flex;
   justify-content: space-between;
-  width: 300px;
+  align-items: center;
+  width: 360px;
 }
 
 .nav-item2 {
@@ -30,6 +31,5 @@
   &:hover {
     color: black;
     text-decoration: none;
-
   }
 }
