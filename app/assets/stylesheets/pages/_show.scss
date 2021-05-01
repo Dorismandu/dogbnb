@@ -77,9 +77,13 @@
 
 .individual-dog-info {
   border-top: solid;
+  border-bottom: solid;
   border-width: 1px;
   border-color: rgb(200,200,200);
   padding-top: 50px;
+  padding-bottom: 30px;
+  position: relative;
+  margin-bottom: 30px;
 }
 
 .request-booking {
@@ -102,6 +106,15 @@
   text-align: center;
 }
 
+.single-info-pic {
+  border-radius: 16px;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+}
 
+.dog-description {
+  margin-top: 10px;
+}
 
 
