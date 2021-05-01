@@ -27,10 +27,13 @@
       <div class="col-8">
         <div class="dog-info-holder" style="width:760px;">
           <div class="dog-show-info">
-            <% description = ["A beautiful dog hosted by USER", "USER offers unforgettable time with his dog", "Dont work, go for a walk"] %>
+            <% user = @dog.user.name %>
+            <% description = ["A beautiful dog hosted by #{user}", "#{user} offers unforgettable time with his dog", "Dont work, go for a walk"] %>
             <div class="dog-show-info-header d-flex justify-content-between">
               <h2 class="user-description"> <%= description.sample %></h2>
-              <div class="avatar-user"></div>
+              <div class="avatar-user">
+                <%= cl_image_tag @dog.user.profile_pic.key, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar" %>
+              </div>
             </div>
           </div>
           <div class="covid-restrictions">
