@@ -25,7 +25,15 @@
   background-size: cover;
 }
 
+.activity-description {
+  color: white;
+}
 
+.activity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .container {
   margin-top: 20px;
@@ -133,5 +141,9 @@
   right:20px;
   bottom: 13px;
   font-size: 13px;
-  color: black;
+  color: #1cc5dc;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
