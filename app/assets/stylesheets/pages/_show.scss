@@ -1,0 +1,87 @@
+.container-show {
+  padding: 0px 100px;
+}
+
+.start-info {
+  text-decoration: underline;
+}
+
+.dog-header {
+  margin-top: 30px;
+}
+
+.big-dog-image {
+  margin-right: 10px;
+}
+
+.upper-small-dog-image {
+  margin-bottom: 10px;
+  border-radius: 0px 20px 0px 0px;
+}
+
+.lower-small-dog-image {
+  border-radius: 0px 0px 20px 0px;
+}
+
+.big-pic {
+  border-radius: 20px 0px 0px 20px;
+}
+
+.small-symbols {
+  color: black;
+  padding: 8px;
+  border-radius: 4px;
+
+  &:hover {
+    background: rgba(230,230,230,0.7);
+  }
+}
+
+.avatar-user {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: grey;
+  justify-content: center;
+}
+
+.dog-show-info-header {
+  border-bottom: solid;
+  border-color: rgb(200,200,200);
+  border-width: 1px;
+  padding: 10px;
+  margin-top: 40px;
+}
+
+.share {
+  margin-right: 10px;
+}
+
+.covid-restrictions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  margin: 40px 0px;
+  width: 800px;
+  height: 160px;
+  border: solid;
+  border-width: 1px 1px 1px 5px;
+  border-radius: 10px;
+  border-color: rgb(200,200,200) rgb(200,200,200) rgb(200,200,200) #1cc5dc;
+}
+
+.individual-dog-info {
+  border-top: solid;
+  border-width: 1px;
+  border-color: rgb(200,200,200);
+  padding-top: 50px;
+}
+
+
+
+
+
+
+
+
