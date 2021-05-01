@@ -2,8 +2,8 @@
 
 
 <div class="container mt-5">
-  <div class="header d-flex ml-1">
-    <h3>Pick a Dog to borrow</h3>
+  <div class="header d-flex ml-5">
+    <h2 class="index-header">See all available <strong id="dog-colored">Dogs</strong></h2>
   </div>
   <p class="ml-5">For a walk, to play in the park...</p>
   <div class="row ml-5">
@@ -11,7 +11,7 @@
       <div class="lg-4">
         <div class="card">
           <div class="profile-pic">
-            <%= cl_image_tag dog.photos.first.key, height: 150, width: 298, crop: :fill%>
+            <%= cl_image_tag dog.photos.first.key, height: 150, width: 298, crop: :fill, class: "profile-pic"%>
           </div>
           <div class="profile-info" style="height: 170px;">
             <h4>Meet <%= dog.name %></h4>
@@ -20,7 +20,7 @@
             </div>
             <i class="fas fa-home house-logo" style="font-size: 13px;"> <span style="font-size: 10px;">  Kreuzberg, Berlin</span></i>
             <i class="fas fa-star profile-rating" style="font-size: 13px;"> 4.5</i>
-            <%= link_to "See More ->", dog_path(dog), class: "see-more" %>
+            <strong><%= link_to "See More", dog_path(dog), class: "see-more" %></strong>
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@
           </div>
           <i class="fas fa-home house-logo" style="font-size: 13px;"> <span style="font-size: 10px;">  Kreuzberg, Berlin</span></i>
           <i class="fas fa-star profile-rating" style="font-size: 13px;"> 4.5</i>
-          <%= link_to "See More ->", dog_path(dog), class: "see-more" %>
+          <strong><%= link_to "See More", dog_path(dog), class: "see-more" %></strong>
         </div>
       </div>
     <% end %>
@@ -32,10 +32,15 @@
     <i class="fas fa-long-arrow-alt-right"></i>
   </div>
   <div class="card-box">
-    <div class="card para">
+    <div class="card para activity">
+      <h4 class="activity-description">Fun adventures</h4>
     </div>
-    <div class="card walk"></div>
-    <div class="card sleep"></div>
+    <div class="card walk activity">
+      <h4 class="activity-description">Walk in the forrest</h4>
+    </div>
+    <div class="card sleep activity">
+      <h4 class="activity-description">Cuddle & Chill</h4>
+    </div>
   </div>
 </div>
 <div class="container">

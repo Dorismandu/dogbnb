@@ -43,7 +43,11 @@
             <p><i class="fas fa-info"></i> Name: <%= @dog.name %></p>
             <p><i class="fas fa-dog"></i> Breed: <%= @dog.breed %></p>
             <p><i class="fas fa-baby-carriage"></i> Age: <%= @dog.age %></p>
-            <p><i class="fas fa-file-alt"></i> Description: <br> <%= @dog.description %></p>
+            <p><i class="fas fa-file-alt"></i> Description: <br> <p class="dog-description"><%= @dog.description %></p></p>
+            <%= cl_image_tag @dog.photos[0].key, height: 150, width: 320, crop: :fill, class: "single-info-pic" %>
+          </div>
+          <div class="review-section">
+            <h2 class="user-description">Reviews</h2>
           </div>
         </div>
       </div>
