@@ -7,7 +7,7 @@
   </div>
 
   <div>
-    <% @bookings.each do |booking| %>
+    <% @bookings.reverse_each do |booking| %>
       <div class="card-booking">
         <div>
           <span class="dogpic"> <%= cl_image_tag booking.dog.photos[0].key, class: "avatar-large", alt: "avatar" %> </span>
