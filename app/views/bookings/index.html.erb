@@ -1,3 +1,5 @@
+<% statuses = ["pending", "approved", "denied"] %>
+
 <div class="container-booking">
 
   <div class="heading">
@@ -5,30 +7,23 @@
   </div>
 
   <div>
-    <div>
-      <% @bookings.each do |booking| %>
-        <div class="card-booking">
-          <div>
-            <span> <%= cl_image_tag booking.dog.photos[0].key, class: "avatar", alt: "avatar" %> </span>
-            <span> <%= booking.dog.name %> </span>
-          </div>
-          <div>
-            <span> Status:
-              <% if booking.status == 0 %>
-                <%= "Pending" %>
-              <% elsif booking.status == 1 %>
-                <%= "Approved" %>
-              <% else %>
-                <%= "Denied" %>
-              <% end %> </span>
-          </div>
-          <div>
-            <span> <%= link_to "More >", booking_path(@bookings.first) %> </span>
-          </div>
+    <% @bookings.each do |booking| %>
+      <div class="card-booking">
+        <div>
+          <span class="dogpic"> <%= cl_image_tag booking.dog.photos[0].key, class: "avatar-large", alt: "avatar" %> </span>
+          <span> <%= booking.dog.name %> </span>
         </div>
-      <% end %>
-    </div>
-
+        <div class="status">
+          <span>Status:</span>
+          <span class="<%= statuses[booking.status] %>">
+            <%= statuses[booking.status].upcase %>
+          </span>
+        </div>
+        <div>
+          <span> <%= link_to "More", booking_path(booking), class: "link" %> > </span>
+        </div>
+      </div>
+    <% end %>
   </div>
 
 </div>

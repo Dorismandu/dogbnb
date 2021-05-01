@@ -1,3 +1,50 @@
-<h1>Hello</h1>
-<h1>akjbsdj</h1>
-<h1>asdfasf</h1>
+
+<h1>Ignore</h1>
+<div class="container-show">
+  <div class="dog-header justify-content-between">
+    <h1 style="padding-left: 10px;">Hi friend, I'm <%= @dog.name %></h1>
+    <div class="dog-header-symbols d-flex justify-content-between" style="padding: 0px 10px; margin-bottom: 20px;">
+      <div class="show-rating">
+        <i class="far fa-star">    4.5 <span class="start-info">(7 reviews)</span> · <span class="start-info">Kreuzberg, Berlin</span></i>
+      </div>
+      <div>
+        <a href=""><i class="far fa-share-square share small-symbols">  Share</i></a>
+        <a href=""><i class="far fa-heart save small-symbols">  Save</i></a>
+      </div>
+    </div>
+  </div>
+  <div class="dog-images d-flex">
+    <div class="big-dog-image">
+      <%= cl_image_tag @dog.photos[0].key, height: 410, width: 800, crop: :fill, class: "big-pic"%>
+    </div>
+    <div class="small-dog-images d-flex flex-column">
+      <%= cl_image_tag @dog.photos[1].key, height: 200, width: 420, crop: :fill, class: "upper-small-dog-image" %>
+      <%= cl_image_tag @dog.photos[2].key, height: 200, width: 420, crop: :fill, class: "lower-small-dog-image" %>
+    </div>
+  </div>
+  <div class="dog-show-info">
+    <% description = ["A beautiful dog hosted by USER", "USER offers unforgettable time with his dog", "Dont work, go for a walk"] %>
+    <div class="dog-show-info-header d-flex justify-content-between" style="width: 800px;">
+      <h2> <%= description.sample %></h2>
+      <div class="avatar-user"></div>
+    </div>
+  </div>
+  <div class="covid-restrictions">
+    <h4>Local covid restrictions</h4>
+    <p>Please review government restrictions on meetups in this area due to COVID-19</p>
+    <a href="">Learn more</a>
+  </div>
+  <div class="individual-dog-info" style="width: 800px;">
+    <p><i class="fas fa-user"></i> Owner: <%= @dog.user.name %></p>
+    <p><i class="fas fa-info"></i> Name: <%= @dog.name %></p>
+    <p><i class="fas fa-dog"></i> Breed: <%= @dog.breed %></p>
+    <p><i class="fas fa-baby-carriage"></i> Age: <%= @dog.age %></p>
+    <p><i class="fas fa-file-alt"></i> Description: <br> <%= @dog.description %></p>
+
+  </div>
+
+  <div class="dummy" style="height:1000px">
+
+  </div>
+</div>
+
