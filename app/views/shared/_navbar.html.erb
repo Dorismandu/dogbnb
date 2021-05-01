@@ -11,6 +11,7 @@
     <div class="navbar-nav">
       <% if user_signed_in? %>
         <div class="nav-item">
+          <span> <%= link_to "Share your Dog", root_path, class: "new-dog btn btn-primary" %> </span>
           <span> <%= link_to "Dogs", dogs_path, class: "item" %> </span>
           <span> <%= link_to "Your requests", bookings_path, class: "item"  %> </span>
           <span> <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "item" %> </span>
