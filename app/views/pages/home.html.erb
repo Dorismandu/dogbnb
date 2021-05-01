@@ -1,6 +1,6 @@
-<div class="banner d-flex justify-content-center align-items-center flex-column">
+<div class="banner d-flex justify-content-center align-items-center flex-column" >
   <h1>Become a part-time <strong>dog</strong> owner</h1>
-  <a href="#" class="button cta">Get a pet!</a>
+  <%= link_to "Get a Pet!", dogs_path, class: "button cta" %>
 </div>
 <div class="container">
   <div class="header d-flex">
@@ -32,9 +32,10 @@
     <i class="fas fa-long-arrow-alt-right"></i>
   </div>
   <div class="card-box">
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
+    <div class="card para">
+    </div>
+    <div class="card walk"></div>
+    <div class="card sleep"></div>
   </div>
 </div>
 <div class="container">
@@ -45,7 +46,6 @@
       <a href="#" class="button">Learn more</a>
     </div>
     <div class="big-card-picture">
-
     </div>
   </div>
 </div>
