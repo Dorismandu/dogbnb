@@ -6,4 +6,8 @@ class DogsController < ApplicationController
   def show
     @dog = Dog.find(params[:id])
   end
+
+  def dog_params
+    params.require(:dog).permit(:title, :body, :photos [])
+  end
 end
