@@ -1,9 +1,35 @@
-<div class="container">
-  <ul>
-  
-    <% @dogs.each do |dog| %>
-      <li><%= dog.name %></li>  
+
+
+
+<div class="container mt-5">
+  <div class="header d-flex ml-5">
+    <h3>Rent a Dog</h3>
+    <i class="fas fa-long-arrow-alt-right"></i>
+  </div>
+  <div class="row ml-5">
+      <% @dogs.each do |dog| %>
+      <div class="lg-4">
+        <div class="card">
+          <div class="profile-pic">
+            <%= cl_image_tag dog.photos.first.key, height: 150, width: 298, crop: :fill%>
+          </div>
+          <div class="profile-info" style="height: 170px;">
+            <h4>Meet <%= dog.name %></h4>
+            <div class="profile-description">
+              <p style="display:block;text-overflow: ellipsis;width: 250px;overflow: hidden; white-space: wrap; font-size: 10px; height: 60px; margin-top: 15px;">"<%= dog.description %>"</p>
+            </div>
+            <i class="fas fa-home house-logo" style="font-size: 13px;"> <span style="font-size: 10px;">  Kreuzberg, Berlin</span></i>
+            <i class="fas fa-star profile-rating" style="font-size: 13px;"> 4.5</i>
+            <%= link_to "See More ->", dog_path(dog), class: "see-more" %>
+          </div>
+        </div>
+      </div>
     <% end %>
 
-  </ul>
+
+  </div>
+
+
 </div>
+
+

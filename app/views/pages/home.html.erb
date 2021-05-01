@@ -10,8 +10,8 @@
   <div class="card-box">
     <% @dogs.first(3).each do |dog| %>
       <div class="card">
-        <div class="profile-pic">
-          <%= cl_image_tag dog.photos.first.key, height: 150, width: 298, crop: :fill%>
+        <div>
+          <%= cl_image_tag dog.photos.first.key, height: 150, width: 298, crop: :fill, class: "profile-pic"%>
         </div>
         <div class="profile-info" style="height: 170px;">
           <h4>Meet <%= dog.name %></h4>
