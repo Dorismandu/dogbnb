@@ -3,14 +3,14 @@
 
 <div class="banner mt-5 p-5" style="height: 300px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @booking.dog.photos.first.key, crop: :fill %>);background-size: 100%; background-repeat: no-repeat;">
     <div class="container mt-5">
-      <h2><%= @booking.activity.capitalize %> with <b><%= @booking.dog.name %></b></h2>
+      <h2><%= @booking.activity.capitalize %> with <strong style="color:#17BFAB"><%= @booking.dog.name %></strong></h2>
     </div>
 </div>
 <div class="container mt-5">
   <div class="row">
     <div class="col-sm-12 col-lg-6">
       <div class="owner-reply">
-        <i class="fas <%= status_icon[@booking.status] %> icon-status mt-1 mr-3 <%= statuses[@booking.status] %>"></i> 
+        <i class="fas <%= status_icon[@booking.status] %> icon-status mt-1 mr-3 <%= statuses[@booking.status] %>"></i>
         <div>
           <h5>Status:</h5>
           <p class=<%= statuses[@booking.status] %> ><%= statuses[@booking.status].upcase %></p>
@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="col-sm-12 col-lg-6">
-    
+
     <div class="owner-reply">
     <%= cl_image_tag @booking.dog.user.profile_pic.key, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar mt-1 mr-3" %>
       <div>
