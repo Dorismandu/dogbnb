@@ -20,7 +20,12 @@
     <div class="col-sm-12 col-lg-6">
 
     <div class="owner-reply">
-    <%= cl_image_tag @booking.dog.user.profile_pic.key, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar mt-1 mr-3" %>
+      <% if @booking.dog.user.profile_pic %>
+        <%= cl_image_tag @booking.dog.user.profile_pic.key, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar mt-1 mr-3" %>
+      <% else %>
+        <%= image_tag("man.png", size:"40", class: "avatar mt-1 mr-3")  %>
+      <% end %>
+    
       <div>
           <h5>Reply from <b><%= @booking.dog.user.name %></b>:</h5>
         <p class="message" ><%= @booking.message ? @booking.message : "The owner hasn't left a reply yet" %></p>
