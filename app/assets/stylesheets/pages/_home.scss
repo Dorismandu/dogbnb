@@ -6,7 +6,7 @@
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.15)), url(dogbanner.jpg);
   background-size: 100%;
   h1 {
-    color: #17BFAB;
+    color: $primary;
   }
 }
 
@@ -141,7 +141,7 @@
   right:20px;
   bottom: 13px;
   font-size: 13px;
-  color: #1cc5dc;
+  color: $primary;
 
   &:hover {
     text-decoration: none;
