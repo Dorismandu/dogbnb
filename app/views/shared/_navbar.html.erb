@@ -12,9 +12,9 @@
       <% if user_signed_in? %>
         <div class="nav-item">
           <div class="nav-3items">
-            <span> <%= link_to "Share my Dog", root_path, class: "new-dog btn btn-primary" %> </span>
             <span> <%= link_to "Dogs", dogs_path, class: "item" %> </span>
             <span> <%= link_to "My requests", bookings_path, class: "item"  %> </span>
+            <span> <%= link_to "Share my Dog", root_path, class: "new-dog btn btn-primary" %> </span>
           </div>
           <div class="nav-signout">
             <span> <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "item" %> </span>
