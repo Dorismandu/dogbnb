@@ -2,16 +2,19 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show]
 
   def index
-    @bookings = Booking.all
+    all_bookings = policy_scope(Booking).order(created_at: :desc)
+    @bookings = all_bookings.select { |booking| booking.user == current_user}
   end
 
   def new
     @dog = Dog.find(params[:dog_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @dog = Dog.find(params[:dog_id])
 
     @booking.dog = @dog
@@ -37,6 +40,7 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def booking_params
