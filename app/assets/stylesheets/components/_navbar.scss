@@ -1,7 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-  padding: 0px 96px;
+  padding: 8px 96px;
   }
 
 .navbar-lewagon .navbar-collapse {
@@ -15,8 +15,21 @@
 .nav-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  width: 360px;
+  width: 540px;
+
+  .nav-3items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 340px;
+  }
+
+  .nav-signout {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 120px;
+  }
 }
 
 .nav-item2 {
@@ -32,4 +45,8 @@
     color: black;
     text-decoration: none;
   }
+}
+
+.new-dog {
+  border-radius: 8px;
 }
