@@ -1,5 +1,6 @@
 class DogsController < ApplicationController
   before_action :set_dog, only: [:show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @dogs = policy_scope(Dog).order(created_at: :desc)
   end
