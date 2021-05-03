@@ -18,7 +18,12 @@
           </div>
           <div class="nav-signout">
             <span> <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "item" %> </span>
-            <span> <%= cl_image_tag current_user.profile_pic.key, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar" %> </span>
+              <% if current_user.profile_pic %>
+                  <span> <%= cl_image_tag current_user.profile_pic.key, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar" %> </span>
+                <% else %>
+                  <%= image_tag("man.png", size:"40", class: "avatar")  %>
+                <% end %>
+            
           </div>
         </div>
       <% else %>
@@ -31,3 +36,5 @@
   </div>
 
 </div>
+
+Dog.all.each { |my_dog| my_dog.user = User.last }

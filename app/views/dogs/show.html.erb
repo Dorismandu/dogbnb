@@ -32,7 +32,11 @@
             <div class="dog-show-info-header d-flex justify-content-between">
               <h2 class="user-description"> <%= description.sample %></h2>
               <div class="avatar-user">
-                <%= cl_image_tag @dog.user.profile_pic.key, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar" %>
+                <% if @dog.user.profile_pic %>
+                  <%= cl_image_tag @dog.user.profile_pic.key, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar" %>
+                <% else %>
+                  <%= image_tag("man.png", size:"40", class: "avatar")  %>
+                <% end %>
               </div>
             </div>
           </div>
