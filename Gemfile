@@ -35,6 +35,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'faker'
 gem 'pundit'
+gem 'select2_simple_form', github: 'lndl/select2_simple_form', tag: '0.7.3'
 
 group :development, :test do
   gem 'pry-byebug'

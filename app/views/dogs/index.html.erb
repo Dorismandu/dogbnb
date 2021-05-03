@@ -11,7 +11,11 @@
       <div class="lg-4">
         <div class="card">
           <div class="profile-pic">
+          <% if dog.photos.first %>
             <%= cl_image_tag dog.photos.first.key, height: 150, width: 298, crop: :fill, class: "profile-pic"%>
+          <% else %>
+            <%= image_tag("dog_placeholder.jpg", height: 150, width: 298, class: "profile-pic")  %>
+          <% end %>
           </div>
           <div class="profile-info" style="height: 170px;">
             <h4>Meet <%= dog.name %></h4>

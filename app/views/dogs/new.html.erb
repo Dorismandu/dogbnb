@@ -1,0 +1,52 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+
+    <div class="col-6 authentication">
+    <h2>Your Dogs</h2>
+    <% if @dogs[0] %>
+      <% @dogs.each do |dog| %>
+        <div class="lg-4">
+          <div class="card">
+            <div class="profile-pic">
+              <% if dog.photos.first %>
+                <%= cl_image_tag dog.photos.first.key, height: 150, width: 298, crop: :fill, class: "profile-pic"%>
+              <% else %>
+                <%= image_tag("dog_placeholder.jpg", height: 150, width: 298, class: "profile-pic")  %>
+              <% end %>
+            </div>
+            <div class="profile-info" style="height: 170px;">
+              <h4>Meet <%= dog.name %></h4>
+              <div class="profile-description">
+                <p style="display:block;text-overflow: ellipsis;width: 250px;overflow: hidden; white-space: wrap; font-size: 10px; height: 60px; margin-top: 15px;">"<%= dog.description %>"</p>
+              </div>
+              <i class="fas fa-home house-logo" style="font-size: 13px;"> <span style="font-size: 10px;">  Kreuzberg, Berlin</span></i>
+              <i class="fas fa-star profile-rating" style="font-size: 13px;"> 4.5</i>
+              <strong><%= link_to "See More", dog_path(dog), class: "see-more" %></strong>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  <% else %>
+    <div class="mt-5 justify-content-center">
+      <%= image_tag("no_dogs.jpg", class: "no-dogs")  %>
+      <div>
+      <p class="message" id="no-dog-msg" >You didn't add a dog yet</p>
+      </div>
+      
+    </div>
+  <% end %>
+</div>
+
+    <div class="col-6 authentication">
+    <h2>Add a Dog to Share</h2>
+    <%= simple_form_for(@dog) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :breed  %>
+    <%= f.input :age, :collection => 0..20 , :prompt => "Dog's age in year" %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
+    </div>
+  </div>
+</div>
