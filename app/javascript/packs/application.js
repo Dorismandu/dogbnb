@@ -31,3 +31,4 @@ import { initUpdateNavbarOnScroll } from '../components/navbar';
 document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
 });
+

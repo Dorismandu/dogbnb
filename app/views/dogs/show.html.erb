@@ -1,5 +1,4 @@
 
-<h1>Ignore</h1>
 <div class="container-show">
   <div class="dog-header justify-content-between">
     <h1 style="padding-left: 10px;">Hi friend, I'm <%= @dog.name %></h1>
@@ -15,11 +14,23 @@
   </div>
   <div class="dog-images d-flex">
     <div class="big-dog-image">
-      <%= cl_image_tag @dog.photos[0].key, height: 410, width: 800, crop: :fill, class: "big-pic"%>
+          <% if @dog.photos.first %>
+            <%= cl_image_tag @dog.photos[0].key, height: 410, width: 800, crop: :fill, class: "big-pic"%>
+          <% else %>
+            <%= image_tag("dog_placeholder.jpg", height: 410, width: 800, class: "big-pic")  %>
+          <% end %>
     </div>
     <div class="small-dog-images d-flex flex-column">
-      <%= cl_image_tag @dog.photos[1].key, height: 200, width: 420, crop: :fill, class: "upper-small-dog-image" %>
-      <%= cl_image_tag @dog.photos[2].key, height: 200, width: 420, crop: :fill, class: "lower-small-dog-image" %>
+          <% if @dog.photos[1] %>
+            <%= cl_image_tag @dog.photos[1].key, height: 200, width: 420, crop: :fill, class: "upper-small-dog-image" %>
+          <% else %>
+            <%= image_tag("dog_placeholder.jpg", height: 200, width: 420, class: "upper-small-dog-image")  %>
+          <% end %>
+          <% if @dog.photos[2] %>
+            <%= cl_image_tag @dog.photos[2].key, height: 200, width: 420, crop: :fill, class: "lower-small-dog-image" %>
+          <% else %>
+            <%= image_tag("dog_placeholder.jpg", height: 200, width: 420, class: "lower-small-dog-image")  %>
+          <% end %>
     </div>
   </div>
   <div class="main-content-show d-flex justify-content-between" style="height: 1000px;">
@@ -51,7 +62,12 @@
             <p><i class="fas fa-dog"></i> Breed: <%= @dog.breed %></p>
             <p><i class="fas fa-baby-carriage"></i> Age: <%= @dog.age %></p>
             <p><i class="fas fa-file-alt"></i> Description: <br> <p class="dog-description"><%= @dog.description %></p></p>
-            <%= cl_image_tag @dog.photos[0].key, height: 150, width: 320, crop: :fill, class: "single-info-pic" %>
+            <% if @dog.photos.first %>
+              <%= cl_image_tag @dog.photos[0].key, height: 150, width: 320, crop: :fill, class: "single-info-pic" %>
+            <% else %>
+              <%= image_tag("dog_placeholder.jpg", height: 150, width: 320, class: "single-info-pic")  %>
+            <% end %>
+            
           </div>
           <div class="review-section">
             <h2 class="user-description">Reviews</h2>
