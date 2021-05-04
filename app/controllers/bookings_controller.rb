@@ -29,12 +29,12 @@ class BookingsController < ApplicationController
   end
 
   def show
-
+    # for the 'simple_form_for' in bookings show page
+    @review = Review.new
   end
 
   def destroy
   end
-
 
   private
 

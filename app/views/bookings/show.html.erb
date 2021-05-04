@@ -25,7 +25,7 @@
       <% else %>
         <%= image_tag("man.png", size:"40", class: "avatar mt-1 mr-3")  %>
       <% end %>
-    
+
       <div>
           <h5>Reply from <b><%= @booking.dog.user.name %></b>:</h5>
         <p class="message" ><%= @booking.message ? @booking.message : "The owner hasn't left a reply yet" %></p>
@@ -51,3 +51,18 @@
     </div>
   </div>
 </div>
+
+<!-- show the form to input reviews
+ -->
+ <div class="col-12 col-sm-6">
+  <div class="bg-white rounded p-3">
+    <h5>Add your review</h5>
+    <%= simple_form_for [@booking, @review] do |f| %>
+      <%= f.input :comment, placeholder: 'Add your review here...' %>
+      <%= f.input :rating, as: :select, collection: (1..5), required: true, prompt: "What's your rating", input_html: { id: 'review_rating' } %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+
