@@ -14,7 +14,7 @@
           <span> <%= link_to "Dogs", dogs_path, class: "item" %> </span>
           <span> <%= link_to "Your requests", bookings_path, class: "item"  %> </span>
           <span> <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "item" %> </span>
-          <span> <%= cl_image_tag current_user.profile_pic.key, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar" %> </span>
+           <span> <%= cl_image_tag current_user.profile_pic.key, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar" %> </span>
         </div>
       <% else %>
         <div class="nav-item2">

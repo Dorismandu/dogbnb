@@ -1,0 +1,20 @@
+.button {
+  background: white;
+  color: black;
+  padding: 8px;
+  width: 120px;
+  text-align: center;
+  border-radius: 4px;
+
+  &:hover {
+    text-decoration: none;
+    color: black;
+    background-color: rgb(245,245,245);
+  }
+}
+
+.button-primary {
+  color: #fff;
+  background-color: #1cc5dc;
+  border-color: #1cc5dc;
+}
