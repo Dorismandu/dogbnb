@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     @review.booking = @booking
     if @review.save
-      redirect_to dog_path(@dog)
+      redirect_to dog_path(@booking.dog)
     else
       render 'bookings/show'
     end

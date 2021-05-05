@@ -24,8 +24,11 @@ class BookingsController < ApplicationController
     @booking.giveback_time = DateTime.current.beginning_of_day + 1
     @booking.pickup_location = @dog.address
     @booking.giveback_location = @dog.address
-    @booking.save
-    redirect_to bookings_path
+    if @booking.save!
+      redirect_to bookings_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -44,7 +47,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:activity)
+    params.require(:booking).permit(:activity, :pickup_time, :giveback_time)
   end
 
 end

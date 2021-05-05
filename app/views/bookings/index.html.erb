@@ -7,11 +7,11 @@
   </div>
 
   <div>
-    <% @bookings.reverse_each do |booking| %>
+    <% @bookings.reverse.each do |booking| %>
       <div class="card-booking">
         <div>
           <span class="dogpic"> <%= cl_image_tag booking.dog.photos[0].key, class: "avatar-large", alt: "avatar" %> </span>
-          <span> <%= booking.dog.name %> </span>
+          <span> <%= link_to booking.dog.name, dog_path(booking.dog) %> </span>
         </div>
         <div class="status">
           <span>Status:</span>
@@ -25,5 +25,4 @@
       </div>
     <% end %>
   </div>
-
 </div>

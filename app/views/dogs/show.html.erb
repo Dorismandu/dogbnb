@@ -55,9 +55,11 @@
           </div>
           <div class="review-section">
             <h2 class="user-description">Reviews</h2>
-            <%= @dogs.review.each do |review| %>
-              <p> <%= review.comment %> </p>
-              <p> <%= review.rating %> </p>
+            <% if @reviews[0] %>
+              <% @reviews.each do |review| %>
+                <p> <%= review.comment %> </p>
+                <p> <%= review.rating %> </p>
+              <% end %>
             <% end %>
           </div>
         </div>
