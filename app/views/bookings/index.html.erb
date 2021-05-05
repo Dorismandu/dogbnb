@@ -10,8 +10,10 @@
     <% @bookings.reverse.each do |booking| %>
       <div class="card-booking">
         <div>
+        <% if booking.dog.photos[0] %>
           <span class="dogpic"> <%= cl_image_tag booking.dog.photos[0].key, class: "avatar-large", alt: "avatar" %> </span>
           <span> <%= link_to booking.dog.name, dog_path(booking.dog) %> </span>
+        <% end %>
         </div>
         <div class="status">
           <span>Status:</span>

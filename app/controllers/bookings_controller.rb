@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show]
+  before_action :set_booking, only: [:show, :update]
 
   def index
     all_bookings = policy_scope(Booking).order(created_at: :desc)
@@ -36,8 +36,18 @@ class BookingsController < ApplicationController
     @review = Review.new
   end
 
+  def update
+    statuses = ["pending", "approved", "denied"]
+    message = booking_params[:message]
+    status = statuses.index(booking_params[:status])
+    @booking.update({message: message, status:status})
+    authorize @booking
+    redirect_to new_dog_path
+  end
+
   def destroy
   end
+
 
   private
 
@@ -47,7 +57,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:activity, :pickup_time, :giveback_time)
+    params.require(:booking).permit(:activity, :message, :status)
   end
 
 end
