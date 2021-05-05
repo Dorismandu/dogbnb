@@ -9,7 +9,8 @@ class DogsController < ApplicationController
     #@dog = Dog.find(params[:id])
     @booking = Booking.new
     authorize @booking
-    
+    @reviews = []
+    @dog.bookings.each { |booking| @reviews << booking.review }
   end
 
   def new

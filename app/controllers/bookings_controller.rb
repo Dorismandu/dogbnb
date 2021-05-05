@@ -24,12 +24,16 @@ class BookingsController < ApplicationController
     @booking.giveback_time = DateTime.current.beginning_of_day + 1
     @booking.pickup_location = @dog.address
     @booking.giveback_location = @dog.address
-    @booking.save
-    redirect_to bookings_path
+    if @booking.save!
+      redirect_to bookings_path
+    else
+      render :new
+    end
   end
 
   def show
-
+    # for the 'simple_form_for' in bookings show page
+    @review = Review.new
   end
 
   def update
@@ -43,6 +47,7 @@ class BookingsController < ApplicationController
 
   def destroy
   end
+
 
   private
 
