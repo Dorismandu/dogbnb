@@ -36,6 +36,7 @@ h2 {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  width: 310px;
 }
 
 .icon-b {
@@ -67,4 +68,17 @@ h2 {
 .booking-icon {
   width: 22px;
   height: 22px;
+}
+
+.review-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.15);
+  height: 360px;
+
+  p {
+    font-size: 12px;
+    color: #999
+  }
 }
