@@ -3,12 +3,23 @@ class DogsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @dogs = policy_scope(Dog).order(created_at: :desc)
+    @markers = @dogs.geocoded.map do |dog|
+      {
+        lat: dog.latitude,
+        lng: dog.longitude,
+        infoWindow: { content: render_to_string(partial: "/dogs/map_box", locals: { dog: dog }) }
+      }
+    end
   end
 
   def show
-    #@dog = Dog.find(params[:id])
     @booking = Booking.new
+    @marker =  {
+      lat: @dog.latitude,
+      lng: @dog.longitude
+    }
     authorize @booking
+
     @reviews = []
     @dog.bookings.each { |booking| @reviews << booking.review }
   end
@@ -16,6 +27,7 @@ class DogsController < ApplicationController
   def new
     @dog = Dog.new
     all_dogs = Dog.all
+
     @dogs = all_dogs.select{ |dog| dog.user == current_user}
   
     @requests = []
@@ -31,7 +43,7 @@ class DogsController < ApplicationController
     @dog = Dog.new(dog_params)
     authorize @dog
     @dog.user = current_user
-    if  @dog.save
+    if @dog.save
       redirect_to dog_path(@dog)
     else
       render :new
@@ -47,7 +59,7 @@ class DogsController < ApplicationController
   end
 
   def dog_params
-    params.require(:dog).permit(:name, :breed, :age, :description, photos: [])
+    params.require(:dog).permit(:name, :breed, :age, :description, :address, photos: [])
   end
 
 end

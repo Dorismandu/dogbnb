@@ -11,6 +11,7 @@
     "devise": "^1.0.9",
     "faker": "^5.5.3",
     "jquery": "^3.6.0",
+    "mapbox-gl": "^2.2.0",
     "popper.js": "^1.16.1",
     "select2": "^4.1.0-rc.0",
     "turbolinks": "^5.2.0"
