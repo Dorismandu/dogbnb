@@ -67,15 +67,20 @@
             <% else %>
               <%= image_tag("dog_placeholder.jpg", height: 150, width: 320, class: "single-info-pic")  %>
             <% end %>
-            
+
           </div>
           <div class="review-section">
             <h2 class="user-description">Reviews</h2>
             <% if @reviews[0] %>
-              <% @reviews.each do |review| %>
+              <% @reviews.reverse.each do |review| %>
+                <p class="pt-1 mb-1"> <%= review.booking.user.name %> </p>
+                <% review.rating.times do %>
+                  <i class="fas fa-star star-yellow"></i>
+                <% end %>
+                <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
                 <p> <%= review.comment %> </p>
-                <p> <%= review.rating %> </p>
-              <% end %>
+<!--             <%#= link_to 'Delete this review', review_path(review), method: :delete, class: 'border-bottom pb-1', data: { confirm: 'Are you sure you want to delete this list?' } %>
+ -->              <% end %>
             <% end %>
           </div>
         </div>
