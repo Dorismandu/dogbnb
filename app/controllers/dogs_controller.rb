@@ -30,11 +30,14 @@ class DogsController < ApplicationController
 
     @dogs = all_dogs.select{ |dog| dog.user == current_user}
   
-    @requests = []
+    requests = []
 
     @dogs.each do |dog| 
-      dog.bookings.each { | booking| @requests << booking }
+      dog.bookings.each { | booking| requests << booking }
     end
+
+    @pending_requests = requests.select { |request| request.status == 0 }
+    @answered_requests =  requests.select { |request| request.status != 0 }
 
     authorize @dog
   end

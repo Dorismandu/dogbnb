@@ -1,3 +1,13 @@
+ <% pending_requests = 0 %> 
+<% if user_signed_in? && current_user.dogs[0] %>
+ <% current_user.dogs.each do |dog| %> 
+    <% dog.bookings.each do |booking| %>   
+      <% pending_requests +=1 if booking.status == 0 %>    
+    <% end %>  
+  <% end %>
+<% end %>
+
+
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "logo.png" %>
@@ -14,7 +24,18 @@
           <div class="nav-3items">
             <span> <%= link_to "Dogs", dogs_path, class: "item" %> </span>
             <span> <%= link_to "My requests", bookings_path, class: "item"  %> </span>
+            <% if current_user.dogs[0] %>
+            <div class="my-dog-link-container">
+              <span> <%= link_to "My Dogs", new_dog_path, class: "new-dog" %></span> 
+              <% if pending_requests > 0 %>
+              <div>
+              <p class="pending-count" ><%= pending_requests %> <i class="fas fa-bell"></i></p>
+              </div>
+              <% end %>
+            </div>
+            <% else %>
             <span> <%= link_to "Share my Dog", new_dog_path, class: "new-dog btn btn-primary" %> </span>
+            <% end %>
           </div>
           <div class="nav-signout">
             <span> <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "item" %> </span>
@@ -36,5 +57,3 @@
   </div>
 
 </div>
-
-Dog.all.each { |my_dog| my_dog.user = User.last }
