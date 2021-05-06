@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show]
+  before_action :set_booking, only: [:show, :update]
 
   def index
     all_bookings = policy_scope(Booking).order(created_at: :desc)
@@ -24,12 +24,27 @@ class BookingsController < ApplicationController
     @booking.giveback_time = DateTime.current.beginning_of_day + 1
     @booking.pickup_location = @dog.address
     @booking.giveback_location = @dog.address
-    @booking.save
-    redirect_to bookings_path
+    if @booking.save!
+      redirect_to bookings_path
+    else
+      render :new
+    end
   end
 
   def show
+    # for the 'simple_form_for' in bookings show page
+    if !@booking.review
+      @review = Review.new
+    end
+  end
 
+  def update
+    statuses = ["pending", "approved", "denied"]
+    message = booking_params[:message]
+    status = statuses.index(booking_params[:status])
+    @booking.update({message: message, status:status})
+    authorize @booking
+    redirect_to new_dog_path
   end
 
   def destroy
@@ -44,7 +59,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:activity)
+    params.require(:booking).permit(:activity, :message, :status)
   end
 
 end

@@ -1,5 +1,31 @@
+<% statuses = ["pending", "approved", "denied"] %>
 <div class="container mt-5">
   <div class="row justify-content-center">
+  <div class="col-12 authentication">
+  <h2>Requests to borrow your Dog(s)</h2>
+  <% @requests.each do |request| %>
+  <div class="card-booking-request">
+        <div>
+        <% if request.dog.photos[0] %>
+          <span class="dogpic"> <%= cl_image_tag request.dog.photos[0].key, class: "avatar-large", alt: "avatar" %> </span>
+        <% else %>
+          <span class="dogpic"> <%= image_tag("logo.png" , class: "avatar-large") %> </span>
+        <% end %>
+          <span> <%= request.dog.name %> </span>
+        </div>
+        <div class="status">
+          <span>Status:</span>
+          <span class="<%= statuses[request.status] %>">
+            <%= statuses[request.status].upcase %>
+          </span>
+        </div>
+        <div>
+          <span> <%= link_to "Answer", booking_path(request), class: "link" %> > </span>
+        </div>
+      </div>
+    
+  <% end %>
+  </div>
 
     <div class="col-6 authentication">
     <h2>Your Dogs</h2>
@@ -37,17 +63,17 @@
   <% end %>
 </div>
 
-    <div class="col-6 authentication">
+  <div class="col-6 authentication">
     <h2>Add a Dog to Share</h2>
     <%= simple_form_for(@dog) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :breed  %>
-    <%= f.input :age, :collection => 0..20 , :prompt => "Dog's age in year" %>
-    <%= f.input :description, as: :text %>
-    <%= f.input :address %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.submit "Save", class: "btn btn-primary" %>
-<% end %>
+      <%= f.input :name %>
+      <%= f.input :breed  %>
+      <%= f.input :age, :collection => 0..20 , :prompt => "Dog's age in year" %>
+      <%= f.input :description, as: :text %>
+      <%= f.input :address  %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.submit "Save", class: "btn btn-primary" %>
+    <% end %>
     </div>
   </div>
 </div>

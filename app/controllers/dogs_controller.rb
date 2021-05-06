@@ -19,12 +19,23 @@ class DogsController < ApplicationController
       lng: @dog.longitude
     }
     authorize @booking
+
+    @reviews = []
+    @dog.bookings.each { |booking| @reviews << booking.review }
   end
 
   def new
     @dog = Dog.new
     all_dogs = Dog.all
-    @dogs = all_dogs.select{ |dog| dog.user == current_user }
+
+    @dogs = all_dogs.select{ |dog| dog.user == current_user}
+  
+    @requests = []
+
+    @dogs.each do |dog| 
+      dog.bookings.each { | booking| @requests << booking }
+    end
+
     authorize @dog
   end
 
@@ -38,6 +49,7 @@ class DogsController < ApplicationController
       render :new
     end
   end
+
 
   private
 

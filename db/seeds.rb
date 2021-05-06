@@ -25,7 +25,7 @@ i = 0
     address: Faker::Address.full_address,
     description: descriptions.sample,
   )
-  my_dog.user = User.first
+  my_dog.user = User.last
   j = 0
   3.times do
     j += 1
