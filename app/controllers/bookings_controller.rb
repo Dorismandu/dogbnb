@@ -33,7 +33,9 @@ class BookingsController < ApplicationController
 
   def show
     # for the 'simple_form_for' in bookings show page
-    @review = Review.new
+    if !@booking.review
+      @review = Review.new
+    end
   end
 
   def update

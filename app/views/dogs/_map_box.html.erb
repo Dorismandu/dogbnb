@@ -1,0 +1,12 @@
+<div class="marker">
+  <div>
+    <%= cl_image_tag dog.photos[0].key, height: 80, width: 80, class: "dog-image-map"%>
+  </div>
+  <div class="dog-info-map">
+    <div class="general-info-map">
+      <h4>Meet <%= dog.name %></h4>
+      <p class="dog-breed-map"><%= dog.breed %></p>
+    </div>
+    <%= link_to "See more", dog_path(dog), class: "see-more-map" %>
+  </div>
+</div>

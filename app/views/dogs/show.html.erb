@@ -1,10 +1,9 @@
-
 <div class="container-show">
   <div class="dog-header justify-content-between">
     <h1 style="padding-left: 10px;">Hi friend, I'm <%= @dog.name %></h1>
     <div class="dog-header-symbols d-flex justify-content-between" style="padding: 0px 10px; margin-bottom: 20px;">
       <div class="show-rating">
-        <i class="far fa-star">    4.5 <span class="start-info">(7 reviews)</span> · <span class="start-info">Kreuzberg, Berlin</span></i>
+        <i class="far fa-star">    4.5 <span class="start-info">(7 reviews)</span> · <span class="start-info"><%= @dog.address %></span></i>
       </div>
       <div>
         <a href=""><i class="far fa-share-square share small-symbols">  Share</i></a>
@@ -62,11 +61,8 @@
             <p><i class="fas fa-dog"></i> Breed: <%= @dog.breed %></p>
             <p><i class="fas fa-baby-carriage"></i> Age: <%= @dog.age %></p>
             <p><i class="fas fa-file-alt"></i> Description: <br> <p class="dog-description"><%= @dog.description %></p></p>
-            <% if @dog.photos.first %>
-              <%= cl_image_tag @dog.photos[0].key, height: 150, width: 320, crop: :fill, class: "single-info-pic" %>
-            <% else %>
-              <%= image_tag("dog_placeholder.jpg", height: 150, width: 320, class: "single-info-pic")  %>
-            <% end %>
+
+            <div id="map1" style="width: 400px; height: 180px;" data-markers="<%= @marker.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
           </div>
           <div class="review-section">
