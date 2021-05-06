@@ -79,12 +79,14 @@
                 <%= f.submit class: "btn btn-primary btn-block mt-5" %>
               <% end %>
             <% else %>
-                <p class="pt-1 mb-1"> Your review: </p>
+              <div class="px-3">
+                <p class="review-message pt-3"><strong>Your review:</strong></p>
                 <% @booking.review.rating.times do %>
-                  <i class="fas fa-star star-yellow"></i>
+                  <i class="fas fa-star star-yellow pb-3"></i>
                 <% end %>
                 <small><em class="text-muted"><%= distance_of_time_in_words_to_now(@booking.review.created_at) %> ago</em></small>
-                <p> <%= @booking.review.comment %> </p>
+                <p class="review-comment"> <%= @booking.review.comment %> </p>
+              </div>
             <% end %>
         <% else %>
           <h5>Add your review</h5>
