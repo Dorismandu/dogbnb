@@ -27,8 +27,13 @@ import "bootstrap";
 
 // Internal imports:
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { initMapboxIndex, initMapboxShow } from '../plugins/init_mapbox';
+import { initShowMapOnClick } from '../components/map';
 
 document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
+  initShowMapOnClick();
+  initMapboxIndex();
+  initMapboxShow();
 });
 

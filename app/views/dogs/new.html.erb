@@ -32,7 +32,7 @@
       <div>
       <p class="message" id="no-dog-msg" >You didn't add a dog yet</p>
       </div>
-      
+
     </div>
   <% end %>
 </div>
@@ -44,6 +44,7 @@
     <%= f.input :breed  %>
     <%= f.input :age, :collection => 0..20 , :prompt => "Dog's age in year" %>
     <%= f.input :description, as: :text %>
+    <%= f.input :address %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.submit "Save", class: "btn btn-primary" %>
 <% end %>
