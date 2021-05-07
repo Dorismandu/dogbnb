@@ -2,7 +2,13 @@ class DogsController < ApplicationController
   before_action :set_dog, only: [:show]
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @dogs = policy_scope(Dog).order(created_at: :desc)
+    if params[:query].present?
+      sql_query = "breed ILIKE :query OR address ILIKE :query"
+      @dogs = policy_scope(Dog).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @dogs = policy_scope(Dog).order(created_at: :desc)
+    end
+
     @markers = @dogs.geocoded.map do |dog|
       {
         lat: dog.latitude,
@@ -29,10 +35,10 @@ class DogsController < ApplicationController
     all_dogs = Dog.all
 
     @dogs = all_dogs.select{ |dog| dog.user == current_user}
-  
+
     requests = []
 
-    @dogs.each do |dog| 
+    @dogs.each do |dog|
       dog.bookings.each { | booking| requests << booking }
     end
 
