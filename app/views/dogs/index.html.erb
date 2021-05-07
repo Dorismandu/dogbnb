@@ -1,25 +1,36 @@
 
 <div class="container mt-5">
-  <div class="header d-flex ml-5">
-    <h2 class="index-header">See all available <strong id="dog-colored">Dogs</strong></h2>
+  <div class="added-top">
+    <div class="row">
+      <div class="col-sm-12 col-lg-6">
+        <div class="header d-flex ml-5">
+          <h2 class="index-header">See all available <strong id="dog-colored">Dogs</strong></h2>
+        </div>
+      </div>
+      <div class="col-sm-12 col-lg-6">
+        <div class="form-inline full-size" >
+          <%= form_tag dogs_path, method: :get do %>
+            <%= text_field_tag :query,
+            params[:query],
+            class: "form-control search-term",
+            placeholder: "Find a Dog via Breed or Location"
+            %>
+            <%= submit_tag "Search", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="search-form" style="width:400px; margin-left: 50px; margin-bottom: 20px;">
-    <%= form_tag dogs_path, method: :get do %>
-      <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a Dog via Breed or Location"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
-  </div>
+
+
+
   <nav aria-label="Page navigation example">
     <ul class="pagination">
       <li class="page-item"><a class="page-link in list-button" href="#">List</a></li>
       <li class="page-item"><a class="page-link in map-button" href="#">Map</a></li>
     </ul>
   </nav>
-  <div class="row ml-5 main-block ">
+  <div class="row ml-5 main-block d-none ">
       <% @dogs.each do |dog| %>
       <div class="lg-4">
         <div class="card">
@@ -43,7 +54,7 @@
       </div>
     <% end %>
   </div>
-  <div class="map-container d-none ">
+  <div class="map-container ">
     <div style="width: 1000px; height: 600px; margin-left: 55px;">
       <div id="map" style="width: 100%; height: 500px; border-radius: 20px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
