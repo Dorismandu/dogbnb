@@ -3,7 +3,17 @@
     <h1 style="padding-left: 10px;">Hi friend, I'm <%= @dog.name %></h1>
     <div class="dog-header-symbols d-flex justify-content-between" style="padding: 0px 10px; margin-bottom: 20px;">
       <div class="show-rating">
-        <i class="far fa-star">    4.5 <span class="start-info">(7 reviews)</span> · <span class="start-info"><%= @dog.address %></span></i>
+        <i class="far fa-star">
+          <% if @reviews[0] %>
+            <% sum = 0 %>
+            <% @reviews.each do |review| %>
+              <% sum += review.rating %>
+            <% end %>
+            <span><strong> <%= average = (sum / @reviews.count.to_f).round(1) %> </strong></span> ·
+            <span class="start-info"><%= @reviews.count %> reviews</span> · <span class="start-info"><%= @dog.address %></span></i>
+          <% else %>
+            <span>No reviews yet</span> · <span class="start-info"><%= @dog.address %></span></i>
+          <% end %>
       </div>
       <div>
         <a href=""><i class="far fa-share-square share small-symbols">  Share</i></a>
@@ -69,14 +79,15 @@
             <h2 class="user-description">Reviews</h2>
             <% if @reviews[0] %>
               <% @reviews.reverse.each do |review| %>
-                <p class="pt-1 mb-1"> <%= review.booking.user.name %> </p>
+                <p class="pt-2 mb-1"> <%= review.booking.user.name %> </p>
                 <% review.rating.times do %>
                   <i class="fas fa-star star-yellow"></i>
                 <% end %>
                 <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
                 <p> <%= review.comment %> </p>
-<!--             <%#= link_to 'Delete this review', review_path(review), method: :delete, class: 'border-bottom pb-1', data: { confirm: 'Are you sure you want to delete this list?' } %>
- -->              <% end %>
+              <% end %>
+            <% else %>
+              <span>No reviews have been added yet<span>
             <% end %>
           </div>
         </div>
