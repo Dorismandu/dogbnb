@@ -1,0 +1,37 @@
+.full-size {
+  margin-top: 10px;
+  margin-right: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.added-top {
+  padding-top: 40px;
+  padding-bottom: 24px;
+}
+
+
+#query {
+  width: 300px;
+}
+
+@media only screen and (max-width: 900px) {
+  /* For mobile phones: */
+  .full-size {
+    margin-top: 10px;
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .added-top {
+    padding-top: 40px;
+    padding-bottom: 24px;
+  }
+  
+  
+  #query {
+    width: 300px;
+    margin-bottom: 12px;
+  }
+}
