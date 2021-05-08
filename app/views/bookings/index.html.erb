@@ -5,7 +5,7 @@
   <div class="heading mt-5">
     <h3>Your Requests </h3>
   </div>
-<% if !@bookings %>
+<% if @bookings %>
   <div>
     <% @bookings.reverse.each do |booking| %>
       <div class="card-booking">
