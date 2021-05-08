@@ -32,6 +32,13 @@ h2 {
   color: rgba(0,0,0,0.8);
 }
 
+.no-request-yet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .owner-reply {
   display: flex;
   justify-content: flex-start;
@@ -50,6 +57,7 @@ h2 {
 .request-card {
   border-radius: 8px;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.15);
+  background-color: white;
   padding: 28px;
   margin-bottom: 24px;
 

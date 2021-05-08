@@ -12,15 +12,7 @@
 <div class="container mt-5">
   <div class="row justify-content-between">
     <div>
-      <% if @booking.dog.user == current_user %>
-          <div class="col-12">
-            <%= simple_form_for(@booking) do |f| %>
-            <%= f.input :status, :collection => statuses, selected: statuses[@booking.status] %>
-            <%= f.input :message, as: :text  %>
-            <%= f.submit "Save", class: "btn btn-primary" %>
-          </div>
-          <% end %>
-      <% else %>
+      <% if @booking.user == current_user %>
         <div class="col-sm-12 col-lg-6">
           <div class="owner-reply">
             <i class="fas <%= status_icon[@booking.status] %> icon-status mt-1 mr-3 <%= statuses[@booking.status] %>"></i>
@@ -70,7 +62,7 @@
    -->
     <div class="col-12 col-lg-4">
       <div class="review-card">
-        <% if @booking.status == 1 %>
+        <% if @booking.status == 1  && @booking.user == current_user%>
             <% if @review %>
               <h5 class="mb-4">Add your review</h5>
               <%= simple_form_for [@booking, @review] do |f| %>
@@ -88,14 +80,14 @@
                 <p class="review-comment"> <%= @booking.review.comment %> </p>
               </div>
             <% end %>
-        <% else %>
-          <h5>Add your review</h5>
-          <p>Booking needs to be approved first</p>
-          <%= simple_form_for [@booking, @review] do |f| %>
-            <%= f.input :rating, disabled: true %>
-            <%= f.input :comment, disabled: true %>
-            <%= f.submit class: "btn btn-outline-secondary btn-block mt-4", disabled: true %>
-          <% end %>
+        <% elsif @booking.dog.user == current_user %>
+              <h5>Answer the request</h5>
+              <p>Leave a nice message to explain why you accept or deny the offer</p>
+            <%= simple_form_for(@booking) do |f| %>
+              <%= f.input :status, :collection => statuses, selected: statuses[@booking.status] %>
+              <%= f.input :message, as: :text  %>
+              <%= f.submit "Save", class: "btn btn-primary" %>
+            <% end %>
         <% end %>
       </div>
     </div>
