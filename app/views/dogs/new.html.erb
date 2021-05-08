@@ -10,7 +10,7 @@
   <div class="row justify-content-center">
     <div class="col-12 my-requests-content ">
     <% if @pending_requests[0] %>
-      <h2 class="user-description">Pending requests to borrow your Dog(s)</h2>
+      <h2 class="user-description">Pending requests to share your Dog(s)</h2>
       <% @pending_requests.each do |request| %>
         <div class="card-booking-request">
           <div>
@@ -35,7 +35,7 @@
     <% end %>  
 
     <% if @answered_requests[0] %>
-      <h2 class="user-description">Answered requests to borrow your Dog(s)</h2>
+      <h2 class="user-description">Answered requests to share your Dog(s)</h2>
       <% @answered_requests.each do |request| %>
         <div class="card-booking-request">
           <div>

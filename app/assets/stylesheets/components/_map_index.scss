@@ -8,9 +8,12 @@
 }
 
 .dog-image-map {
+  margin-top: 8px;
+  border-radius: 4px;
   width: 100%;
   height: 100px;
   margin-bottom: 5px;
+  object-fit: cover;
 }
 
 .dog-breed-map {
@@ -21,4 +24,10 @@
   position: absolute;
   right: 5px;
   bottom: 0px;
+}
+
+.general-info-map {
+  h4 {
+    font-size: 18px;
+  }
 }

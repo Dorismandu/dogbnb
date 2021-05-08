@@ -1,11 +1,11 @@
 <% statuses = ["pending", "approved", "denied"] %>
 
-<div class="container-booking-index">
+<div class="container-booking-index mt-5">
 
-  <div class="heading">
+  <div class="heading mt-5">
     <h3>Your Requests </h3>
   </div>
-
+<% if !@bookings %>
   <div>
     <% @bookings.reverse.each do |booking| %>
       <div class="card-booking">
@@ -27,4 +27,13 @@
       </div>
     <% end %>
   </div>
+  <% else %>
+  <div class="heading">
+      <div class="no-request-yet">
+        <%= image_tag("no_dogs.jpg", class: "no-dogs")  %>
+        <p class="message mt-3">You haven't made a request yet. See all available dogs, we surely have the perfect new furry friend for you!</p>
+        <%= link_to "See All Dogs", dogs_path, class: "btn btn-primary" %>
+      </div>
+  </div>
+  <% end %>
 </div>
