@@ -88,6 +88,11 @@
               <%= f.input :message, as: :text  %>
               <%= f.submit "Save", class: "btn btn-primary" %>
             <% end %>
+        <% elsif @booking.user == current_user %>
+        <div class="px-3 mt-3">
+                      <h5>Your Review</h5>
+              <p>You will be able to leave a review after <%= @booking.dog.user.name %> has approved your request</p>
+              </div>
         <% end %>
       </div>
     </div>
