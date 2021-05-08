@@ -124,7 +124,7 @@
 
 .review-section {
   height: 250px;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .review-section::-webkit-scrollbar {
