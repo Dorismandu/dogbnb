@@ -10,7 +10,7 @@
               <% sum += review.rating %>
             <% end %>
             <span><strong> <%= average = (sum / @reviews.count.to_f).round(1) %> </strong></span> ·
-            <span class="start-info"><%= @reviews.count %> reviews</span> · <span class="start-info"><%= @dog.address %></span></i>
+            <a href="#review-area" class="start-info" style="color: #0E0000"><%= @reviews.count %> reviews</a> · <span class="start-info"><%= @dog.address %></span></i>
           <% else %>
             <span>No reviews yet</span> · <span class="start-info"><%= @dog.address %></span></i>
           <% end %>
@@ -75,8 +75,8 @@
             <div id="map1" style="width: 400px; height: 180px;" data-markers="<%= @marker.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
           </div>
-          <div class="review-section">
-            <h2 class="user-description">Reviews</h2>
+          <div id="review-area" class="review-section">
+            <h2 class="user-description">Reviews <small>(<%= @reviews.count %>)</small></h2>
             <% if @reviews[0] %>
               <% @reviews.reverse.each do |review| %>
                 <p class="pt-2 mb-1"> <%= review.booking.user.name %> </p>
